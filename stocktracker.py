@@ -2,8 +2,8 @@ import streamlit as st
 from datetime import date
 
 import yfinance as yf
-from fbprophet import Prophet
-from fbprophet.plot import plot_plotly
+from prophet import Prophet
+from prophet.plot import plot_plotly
 from plotly import graph_objs as go
 
 
@@ -31,7 +31,6 @@ period = n_years * 365
 
 #cache stock data
 @st.cache
-
 #load stock data from library
 def load_data(ticker):
     data = yf.download(ticker, START, TODAY)
@@ -86,6 +85,3 @@ st.plotly_chart(fig1)
 st.write("Forecast components")
 fig2 = m.plot_components(forecast)
 st.write(fig2)
-
-#Streamlit documentation: https://docs.streamlit.io/library/api-reference
-#Prophet documentation: https://facebook.github.io/prophet/docs/quick_start.html#python-api
