@@ -11,6 +11,12 @@ from plotly import graph_objs as go
 START = "2017-01-01"
 TODAY = date.today().strftime("%Y-%m-%d")
 
+# Streamlit Config and Headers
+st.set_page_config(
+    page_title="Tech Stocks Historical and Forecasted Data",
+    page_icon="📈",
+)
+
 st.write("""
 # Welcome to the Tech Stock Price Tracker/Projector
 
