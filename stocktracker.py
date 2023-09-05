@@ -22,7 +22,7 @@ st.write("""
 """)
 
 #tech stocks to display
-stocks = ('GOOG', 'AAPL', 'MSFT', 'FB', 'TSLA')
+stocks = ('GOOGL', 'AAPL', 'MSFT', 'META', 'TSLA', 'NVDA')
 selected_stock = st.selectbox('Select stock', stocks)
 
 #period of forecast
@@ -30,10 +30,10 @@ n_years = st.slider('Years of prediction:', 1, 10)
 period = n_years * 365
 
 #cache stock data
-@st.cache
+@st.cache_data
 #load stock data from library
 def load_data(ticker):
-    data = yf.download(ticker, START, TODAY)
+    data = yf.download(ticker, period='60mo')
 #align start and end date 
     data.reset_index(inplace=True)
     return data
